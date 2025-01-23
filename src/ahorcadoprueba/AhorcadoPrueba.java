@@ -22,7 +22,7 @@ public class AhorcadoPrueba {
         boolean terminado = false;
         char letra;
         int fallos = 0;
-        Muñeco juan = new Muñeco(fallos);
+        Muñeco juan = new Muñeco(fallos); //CREA EL OBJ MUÑECO
         StringBuilder letrasUsadas = new StringBuilder("");
         //CODIGO
         System.out.println("BIENVENIDO");
@@ -35,8 +35,9 @@ public class AhorcadoPrueba {
         }
         do {
             boolean muerto = juan.MetodoMostrarMuñeco(fallos);
+            funcionDibujarPalabra(palabraSB, palabraComodin);
             System.out.println("LETRAS FALLADAS:");
-            System.out.printf("%s\n",letrasUsadas);
+            System.out.printf("%s\n", letrasUsadas);
             if (muerto == true) {
                 System.out.println("HAS PERDIDO");
                 return;
@@ -74,6 +75,19 @@ public class AhorcadoPrueba {
         return palabra;
     }
 
+    public static void funcionDibujarPalabra(StringBuilder palabra, StringBuilder palabraComodin) {
+        //MUESTRA LA PALABRA
+        for (int i = 0; i < palabra.length(); i++) {
+            System.out.print(palabraComodin.charAt(i));
+            System.out.print(" ");
+        }
+        System.out.println("");
+        for (int i = 0; i < palabra.length(); i++) {
+            System.out.print("- ");
+        }
+        System.out.println("");
+    }
+
     public static int funcionMotor(StringBuilder palabra, StringBuilder palabraComodin, char letra, int fallos, StringBuilder letrasUsadas) {
         //CREAR PALBRA COMODIN, EJEMPLO SI LA PALBRA ES "HOLA" COMODIN SERÁ "XOLX"
         for (int i = 0; i < palabra.length(); i++) {
@@ -90,18 +104,8 @@ public class AhorcadoPrueba {
         }
         if (encontrado == false) {
             fallos++;
-            letrasUsadas.append(letra+" ");
+            letrasUsadas.append(letra + " ");
         }
-        //MUESTRA LA PALABRA
-        for (int i = 0; i < palabra.length(); i++) {
-            System.out.print(palabraComodin.charAt(i));
-            System.out.print(" ");
-        }
-        System.out.println("");
-        for (int i = 0; i < palabra.length(); i++) {
-            System.out.print("- ");
-        }
-        System.out.println("");
         return fallos;
     }
 }
