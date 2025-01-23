@@ -87,7 +87,7 @@ public class Muñeco {
             System.out.println("       |");
             System.out.println("=========");
         }
-        if (fallo == 5) {
+        if (fallo == 6) {
             System.out.println("");
             System.out.println("   +---+");
             System.out.println("   |   |");
